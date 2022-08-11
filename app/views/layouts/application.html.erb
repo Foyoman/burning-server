@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Burning Airlines</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <nav>
+    <%= link_to 'home', root_path %>
+    <%= link_to 'airplanes', airplanes_path %>
+    <%= link_to 'flights', flights_path %>
+    <%= link_to 'reservations', reservations_path %>
+    <%# link_to 'users', users_path  %>
+    <% if @current_user.present? %>
+      <%= link_to "logout", login_path, :method => 'delete' %>
+    <% else%>
+      <%# link_to 'sign up', new_user_path %>
+      <%= link_to 'sign in', login_path %>
+    <% end %>
+  </nav>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

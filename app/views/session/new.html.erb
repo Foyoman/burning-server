@@ -1,0 +1,16 @@
+<div class="user-form">
+    <h1>Log in</h1>
+
+    <% if flash[:error].present? %>
+        <h2><%= flash[:error] %></h2>
+    <% end %>
+
+    <%= form_tag login_path do %>
+        <%= text_field_tag :email, nil, placeholder: 'email' %>
+
+        <%= password_field_tag :password, nil, placeholder: 'password' %>
+        <br>
+        </br>
+        <%= submit_tag "Log in", class: 'log' %>
+    <% end %>
+</div>

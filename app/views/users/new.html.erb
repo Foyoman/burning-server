@@ -1,0 +1,26 @@
+<div class="user-form">
+    <h1>create account</h1>
+    <% if @user.errors.any? %>
+    <ol>
+        <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg.downcase %></li>
+        <% end %>
+    </ol>
+    <% end %>
+    <%= form_for @user do |f| %>
+        <div>
+            <%# f.label :email %>
+            <%= f.text_field :email, :maxlength => 20, :placeholder => 'email' %>
+        </div>
+        <div>
+            <%# f.label :password %>
+            <%= f.password_field :password, :placeholder => 'password' %>
+        </div>
+        <div>
+            <%# f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation, :placeholder => 'confirm password' %>
+        </div>
+        <br>
+        <%= f.submit "Sign up", :class => 'log' %>
+    <% end %>
+</div>
